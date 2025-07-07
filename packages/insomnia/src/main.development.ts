@@ -85,16 +85,17 @@ app.on('ready', async () => {
   };
   disableSpellcheckerDownload();
 
-  if (isDevelopment()) {
-    try {
-      const extensions = [REACT_DEVELOPER_TOOLS];
-      const extensionsPlural = extensions.length > 0 ? 's' : '';
-      const names = await Promise.all(extensions.map(extension => installExtension(extension)));
-      console.log(`[electron-extensions] Added DevTools Extension${extensionsPlural}: ${names.join(', ')}`);
-    } catch (err) {
-      console.log('[electron-extensions] An error occurred: ', err);
-    }
-  }
+  // disable extension auto install in current network environment
+  // if (isDevelopment()) {
+  //   try {
+  //     const extensions = [REACT_DEVELOPER_TOOLS];
+  //     const extensionsPlural = extensions.length > 0 ? 's' : '';
+  //     const names = await Promise.all(extensions.map(extension => installExtension(extension)));
+  //     console.log(`[electron-extensions] Added DevTools Extension${extensionsPlural}: ${names.join(', ')}`);
+  //   } catch (err) {
+  //     console.log('[electron-extensions] An error occurred: ', err);
+  //   }
+  // }
 
   // Init some important things first
   await database.init(models.types());

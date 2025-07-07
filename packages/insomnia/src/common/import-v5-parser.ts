@@ -1,4 +1,4 @@
-import { z } from 'zod/v4';
+import { z } from 'zod';
 
 // This uses zod in order to ensure the parsed input matches our types before we insert it into the database
 
